@@ -1,0 +1,114 @@
+<head>
+    <title>Blog | Rares</title>
+</head>
+
+<body>
+    <h1>rares ~ blog</h1>
+    <h5>{{nArticole}} articole</h5>
+
+    {{> loginButtons}}
+
+    <div class="block">
+
+        {{#if currentUser}}
+        <h2>Adauga un articol nou</h2>
+
+        <form class="new-article">
+
+            <input type="text" name="title" placeholder="Titlul Articolului" />
+
+            <br />
+            <br />
+
+            <textarea cols="25" rows="5" name="content" placeholder="Continutul Articolului"></textarea>
+
+            <br />
+            <br />
+
+            <label>Culoarea textului:</label>
+            <select name="color">
+                <option value="red">Rosu</option>
+                <option value="orange">Portocaliu</option>
+                <option value="yellow">Galben</option>
+                <option value="green">Verde</option>     <!-- curcubeu wew -->
+                <option value="blue">Albastru</option>
+                <option value="indigo">Indigo</option>
+                <option value="purple">Mov</option>
+            </select>
+
+            <br />
+            <br />
+            <!-- {{#if titleAndContentArentEmpty}} -->
+            <button type="submit" class="enter">Trimite</button>
+            <!-- {{/if}} -->
+
+        </form>
+
+        {{/if}}
+
+    </div>
+
+    <ul>
+        {{#each articole}}
+        {{> articol}}
+        {{/each}}
+    </ul>
+</body>
+
+
+
+
+<template name="articol">
+    <li>
+        <div id="art-temp">
+            <ul>
+                Adaugat {{ziua}} la {{timp}} de <strong>{{username}}</strong>
+                <li>Titlu:<span class="titlu" style="color: {{culoare}};">{{titlu}}</span></li>
+                <li>Continut:<span class="continut" style="color: {{culoare}};">{{continut}}</span></li>
+            </ul>
+            <!-- <button class="art-buttons like">LIKE</button> ({{like_counter}}) -->
+
+            <button class="remove art-buttons">Sterge</button>
+
+            <button class="showcomm art-buttons">Show comments ({{num_comm _id}} comments)</button>
+
+            {{> formComentariu}}
+        </div>
+    </li>
+    <br />
+    <br />
+</template>
+
+
+
+
+<template name="formComentariu" >
+    <form class="new-comment" id="comm">
+        <hr />
+        Add Comment
+        <br />
+        <input type="text" name="commTitle" placeholder="titlu" />
+        <textarea cols="25" rows="2" name="commContent" placeholder="continutul"></textarea>
+        <br />
+        <button type="submit" class="enter">Trimite</button>  
+
+        <br />
+    
+        {{#each getComments _id}}
+        {{> comentariu}}
+        {{/each}}
+    </form>
+</template>
+
+
+
+
+<template name="comentariu">
+    <br />
+    Comentarii:
+    <br />
+    Titlu: {{coTitlu}}
+    <br />
+    Continut: {{coContinut}}
+    <br />
+</template>

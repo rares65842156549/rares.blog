@@ -1,0 +1,75 @@
+body {
+  background-color: #70e1f5;
+  background-image: linear-gradient(to left, #70e1f5, #ffd194 100%);
+  background-attachment: fixed;
+  font-family: "Comic Sans MS", monospace, sans-serif;
+  color: #FFFFED;
+}
+
+h1 {
+    color: orange;
+}
+
+.block {
+/*
+  max-width: 400px;
+  max-height: 400px;
+*/
+  float: right;
+  border: 1px solid orange;
+}
+
+#art-temp {
+  max-width: 50%;
+  border: 1px solid orange;
+}
+
+.art-buttons, .enter {
+  background: none;
+  font-size: 15px;
+  border: 1px solid orange;
+  position: relative;
+}
+
+.remove {
+  float: right;
+}
+
+.art-buttons:active, .enter:active {
+  background: lightblue;
+}
+
+hr {
+  witdh: 50%;
+  border: 2px solid #FFFFED;
+}
+
+form {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #FFD194;
+}
+
+label {
+  color: #FFD194;
+}
+
+form input, textarea {
+  box-sizing: border-box;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  width: 100%;
+  padding-right: 80px;
+  font-size: 1em;
+}
+
+form input, textarea:focus{
+  outline: 0;
+}
+#comm {
+  display: none;
+}
